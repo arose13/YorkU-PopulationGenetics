@@ -42,7 +42,7 @@ class TestFunctions(unittest.TestCase):
     def test_chi_sq_calc(self):
         test_pop = get_allozyme_data()['EST1']
         output_freq_table, output_alleles, _ = calc_allele_frequencies(test_pop)
-        output_chi_stat = chi_test(output_alleles, output_freq_table, test_pop, n=len(test_pop))
+        output_chi_stat, output_df, output_p_value = chi_test(output_alleles, output_freq_table, test_pop, n=len(test_pop))
 
         self.assertAlmostEqual(output_chi_stat, 0.0554, places=4)
 
