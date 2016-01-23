@@ -1,0 +1,9 @@
+Dataset_33,,,,,,,,,,,
+Sequence length: 1000,,,,,,,,,,,
+The following sites are segregating:,12,,,,,,,,,,
+pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9,pos10,pos11,pos12
+T,A,A,G,T,T,C,C,C,A,C,C
+T,T,A,G,T,T,C,C,C,A,C,C
+T,T,T,G,T,C,C,C,C,G,C,A
+G,T,T,T,G,C,G,C,G,G,G,A
+G,T,T,T,G,C,G,A,G,G,G,A
