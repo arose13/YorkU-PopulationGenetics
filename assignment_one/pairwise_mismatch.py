@@ -1,7 +1,7 @@
 from itertools import combinations
 
 
-site = 'tttgg'
+site = 'ANTHONY'
 mismatches = 0
 combos = 0
 
