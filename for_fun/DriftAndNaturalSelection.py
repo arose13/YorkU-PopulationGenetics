@@ -80,7 +80,7 @@ class NSWithDriftSimulation(object):
                 round(number_lost * 100 / number_of_runs, 2)
             )
         )
-        graph.legend(loc=0)
+        graph.legend(loc=4)
         graph.xlim(0, num_of_generations.max())
         graph.ylim(0, 1.05)
         graph.show()
@@ -183,5 +183,5 @@ class NSWithDriftSimulation(object):
 
 
 if __name__ == '__main__':
-    simulation = NSWithDriftSimulation(size_p=650, size_q=6500-650, type_of_trait=RECESSIVE)
-    simulation.run(number_of_runs=100)
+    simulation = NSWithDriftSimulation(size_p=1000, size_q=100000, type_of_trait=DOMINANT)
+    simulation.run(number_of_runs=1000)
