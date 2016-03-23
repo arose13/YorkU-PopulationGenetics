@@ -47,3 +47,13 @@ def init_qtl_marker_data(chromosome: str, data=get_qtl_data()) -> pd.DataFrame:
             i += 1
 
     return summary_stats
+
+
+def select_by_markers(markers: list, qtl_data=get_qtl_data()):
+    data = pd.DataFrame(columns=markers)
+    data['phenotype'] = qtl_data['Trait_1']
+
+    for marker in markers:
+        data[marker] = qtl_data[marker]
+
+    return data
