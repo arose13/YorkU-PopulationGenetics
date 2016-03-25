@@ -3,6 +3,7 @@ import warnings
 import numpy as np
 import matplotlib.pyplot as graph
 import seaborn as sns
+import pyprind
 
 warnings.simplefilter('ignore')
 sns.set(font_scale=1.5, rc={'figure.figsize': (14, 9)})
@@ -49,7 +50,7 @@ class NSWithDriftSimulation(object):
         graph.xlabel('Number of Generations')
 
         # Selection With Drift
-        for i in range(number_of_runs):
+        for i in pyprind.prog_percent(range(number_of_runs)):
             results, lost = self.single_run()
             num_of_generations.append(len(results))
             number_lost += lost
