@@ -1,5 +1,7 @@
+import numpy as np
 import pandas as pd
 from pandas.stats.api import ols
+from sklearn.ensemble import RandomForestRegressor
 
 # Trait Keys
 [parent1, parent2, offspring] = ['parent1', 'parent2', 'offspring']
@@ -57,3 +59,28 @@ def select_by_markers(markers: list, qtl_data=get_qtl_data()):
         data[marker] = qtl_data[marker]
 
     return data
+
+
+def assessing_marker_importance(x_train, y_train, labels):
+    rf = RandomForestRegressor(
+        n_estimators=5000,
+        criterion='mse',
+        random_state=1992,
+        n_jobs=-1
+    )
+    rf.fit(x_train, y_train)
+
+    importance_matrix = rf.feature_importances_
+    indices = np.argsort(importance_matrix)[::-1]
+
+    output_array = []
+    data = pd.DataFrame(columns=['Marker', 'Importance'])
+    for feature in range(x_train.shape[1]):
+        output_array.append('{}) **{}** {}%'.format(
+            feature + 1,
+            labels[feature],
+            round(importance_matrix[indices[feature]] * 100, 3)
+        ))
+        data.loc[feature] = [labels[feature], importance_matrix[indices[feature]]]
+
+    return output_array, data
