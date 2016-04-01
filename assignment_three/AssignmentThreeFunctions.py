@@ -70,6 +70,7 @@ def assessing_marker_importance(x_train, y_train, labels):
     )
     rf.fit(x_train, y_train)
 
+
     importance_matrix = rf.feature_importances_
     indices = np.argsort(importance_matrix)[::-1]
 
